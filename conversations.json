@@ -1,0 +1,100 @@
+{
+  "612142091972168_Career_coach": [
+    {
+      "role": "user",
+      "message": "hlo"
+    },
+    {
+      "role": "bot",
+      "message": "Hello! I'm Coach Jade, your career coaching consultant. It's lovely to meet you. To help us get started, could you tell me a little about your educational background? No need for every detail—just a general overview is perfect.\n\n<<JSON>>{\n\"ducational backgrouns\": \"\",\n\"work_experience\": \"\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "bba?"
+    },
+    {
+      "role": "bot",
+      "message": "Hello! It's great to connect with you. To help me understand your starting point, could you share a bit about your educational background? For example, what did you study for your BBA, and when did you graduate?\n\n<<JSON>>{\n\"ducational backgrouns\": \"User mentioned having a BBA.\",\n\"work_experience\": \"\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "I am in 4th year"
+    },
+    {
+      "role": "bot",
+      "message": "It seems like you are currently in your fourth year. To give you tailored career guidance, could you provide more details about your educational background? For instance, are you pursuing a specific degree or field of study as a fourth-year student?\n\n<<JSON>>{\n\"ducational backgrouns\": \"User mentioned being in their fourth year.\",\n\"work_experience\": \"\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "hello"
+    },
+    {
+      "role": "bot",
+      "message": "Hello! I'm Coach Jade, your career coaching consultant. It's a pleasure to meet you. To help guide our conversation effectively, could you share a bit about your educational background? What degree are you pursuing as a fourth-year student? Feel free to share any additional details that you think would be helpful."
+    },
+    {
+      "role": "user",
+      "message": "hello"
+    },
+    {
+      "role": "bot",
+      "message": "Hello! I'm Coach Jade, your career coaching consultant. It's lovely to meet you. To help us get started, could you tell me a little about your educational background? No need for every detail—just a general overview is perfect.\n\n<<JSON>>{\n\"ducational backgrouns\": \"\",\n\"work_experience\": \"\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "hello"
+    },
+    {
+      "role": "bot",
+      "message": "Hello! I'm Coach Jade, your career coaching consultant. It's wonderful to have you here. To get started, could you kindly share a bit about your educational background? What degree are you pursuing as a fourth-year student? Feel free to include any additional details you think would be relevant."
+    },
+    {
+      "role": "user",
+      "message": "BBA"
+    },
+    {
+      "role": "bot",
+      "message": "Thank you for sharing that! A Bachelor of Business Administration is a great foundation. To help me understand your professional journey so far, could you tell me a bit about any work experience you have? This could include internships, part-time jobs, or volunteer roles—whatever feels relevant to you.\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "I have done internship in bank"
+    },
+    {
+      "role": "bot",
+      "message": "Thank you for sharing that! A banking internship is valuable experience. I'm curious—what's prompting you to focus on career planning right now? Feel free to share whatever feels most relevant.\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"User has completed an internship in a bank.\",\n\"Why are you considering career planning now\": \"\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "just my hobby"
+    },
+    {
+      "role": "bot",
+      "message": "That's a wonderful reason to explore career planning—it's great to be proactive! What do you hope to gain from exploring your career strengths today? For instance, are you looking for clarity on potential career paths?\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"User has completed an internship in a bank.\",\n\"Why are you considering career planning now\": \"User mentioned it is their hobby.\",\n\"What do you hope to gain from exploring your career strengths?\": \"\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "yes"
+    },
+    {
+      "role": "bot",
+      "message": "Thank you! Now let's dive into some specific experiences. Could you share a story of an achievement that you're proud of? It could be from your internship, studies, or personal life—whatever comes to mind first.\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"User has completed an internship in a bank.\",\n\"Why are you considering career planning now\": \"User mentioned it is their hobby.\",\n\"What do you hope to gain from exploring your career strengths?\": \"User confirmed they are looking for clarity on potential career paths.\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "nont have anything"
+    },
+    {
+      "role": "bot",
+      "message": "I understand—sometimes it can be challenging to recall achievements on the spot, and that's completely okay. Perhaps we could try a different approach. Could you tell me about a time you successfully helped a customer or completed a project during your bank internship? Even small moments count!\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"User has completed an internship in a bank.\",\n\"Why are you considering career planning now\": \"User mentioned it is their hobby.\",\n\"What do you hope to gain from exploring your career strengths?\": \"User confirmed they are looking for clarity on potential career paths.\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"User mentioned not having anything to share.\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    },
+    {
+      "role": "user",
+      "message": "its 1 year ago"
+    },
+    {
+      "role": "bot",
+      "message": "I understand—it can be tricky to recall details from a year ago. No worries at all. Perhaps we could shift to a personal achievement instead? Could you share a story from your studies, hobbies, or daily life where you felt proud of what you accomplished?\n\n<<JSON>>{\n\"ducational backgrouns\": \"User has a BBA (Bachelor of Business Administration).\",\n\"work_experience\": \"User has completed an internship in a bank.\",\n\"Why are you considering career planning now\": \"User mentioned it is their hobby.\",\n\"What do you hope to gain from exploring your career strengths?\": \"User confirmed they are looking for clarity on potential career paths.\",\n\"Can you share a story of an achievement (work, school, or life)?\": \"User mentioned not having anything to share from their internship as it was one year ago.\",\n\"What was the biggest challenge in this story?\": \"\",\n\"How did you overcome it?\": \"\",\n\"What key actions led to the outcome?\": \"\",\n\"How did you approach this differently than others?\": \"\",\n\"Can you share another story from a different context (personal life, relationships, etc.)?\": \"\",\n\"What common strengths or skills appear across your stories?\": \"\",\n\"Do these strengths align with how you see yourself?\": \"\"\n}<<ENDJSON>>"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+    "Career_coach": {
+        "page_id": "612142091972168",
+        "user_id": "Career_coach",
+        "business_name": "Coach Jade",
+        "business_address": "",
+        "offerings": "A career coaching consultant.",
+        "business_hours": "",
+        "goalType": "Lead Capture",
+        "field": [
+            "ducational backgrouns",
+            "work_experience",
+            "Why are you considering career planning now",
+            "What do you hope to gain from exploring your career strengths?",
+            "Can you share a story of an achievement (work, school, or life)?",
+            "What was the biggest challenge in this story?",
+            "How did you overcome it?",
+            "What key actions led to the outcome?",
+            "How did you approach this differently than others?",
+            "Can you share another story from a different context (personal life, relationships, etc.)?",
+            "What common strengths or skills appear across your stories?",
+            "Do these strengths align with how you see yourself?"
+        ],
+        "toneAndVibe": [],
+        "additionalPrompt": "",
+        "followUps": "Hello! I\u2019m Coach Jade, and I\u2019ll be guiding you through this career exploration session. It\u2019s okay if you can\u2019t think of everything immediately\u2014just take your time.  To start, can you tell me a bit about your educational background and past work experience?",
+        "agent_name": "Coach Jade",
+        "services": []
+    }
+}
