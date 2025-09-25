@@ -47,9 +47,13 @@ def build_context(setup: dict) -> str:
     fields = setup.get("field", [])
     steps = " → ".join(fields) if fields else "Collect necessary information politely"
     if fields:
-        fields_json = "\n".join([f'    "{f}": "..."' for f in fields])
+        fields_json = ""
+        for i, f in enumerate(fields):
+            comma = "," if i < len(fields) - 1 else ""
+            fields_json += f'    "{f}": "..." {comma}\n'
     else:
-        fields_json = '    "name": "..." \n    "email": "..."'
+        fields_json = '    "name": "..." ,\n    "email": "..."'
+
 
     return BASE_TEMPLATE.format(
         fields_json=fields_json,

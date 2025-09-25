@@ -1,32 +1,48 @@
+
 import re
 import json
+import os
 
 def parse_booking_confirmation(text: str):
     """
     Extract lead info from bot reply JSON block.
-    Returns a dictionary if found, else None.
+    Handles:
+    - leading/trailing commas
+    - missing braces
+    - extra braces
+    Returns a dictionary if parsing succeeds, else None.
     """
+    # Extract <<JSON>> block
     pattern = re.compile(r"<<JSON>>(.*?)<<ENDJSON>>", re.DOTALL)
     match = pattern.search(text)
-    if match:
-        json_str = match.group(1).strip()
+    if not match:
+        return None
 
-        # Split lines, strip, and fix missing commas
-        lines = [line.rstrip() for line in json_str.splitlines() if line.strip()]
-        fixed_lines = []
-        for i, line in enumerate(lines):
-            # Skip lines that already end with ',' or are the last line
-            if not line.endswith(",") and i < len(lines) - 1:
-                line += ","
-            fixed_lines.append(line)
+    content = match.group(1).strip()
 
-        json_fixed = "{\n" + "\n".join(fixed_lines) + "\n}"
+    # Remove any leading commas
+    content = re.sub(r'^\s*,+', '', content)
+    # Remove any trailing commas
+    content = re.sub(r',+\s*$', '', content)
+    # Ensure wrapped in braces
+    if not content.startswith("{"):
+        content = "{\n" + content + "\n}"
+    if not content.endswith("}"):
+        content = content + "\n}"
 
-        try:
-            data = json.loads(json_fixed)
-            return data
-        except json.JSONDecodeError as e:
-            print("JSON decode error:", e)
-            print("Fixed JSON string:\n", json_fixed)
-            return None
-    return None
+    # Remove trailing commas before closing brace
+    content = re.sub(r',(\s*})', r'\1', content)
+
+    # Remove any repeated opening braces
+    content = re.sub(r'^\{+', '{', content)
+    # Remove any repeated closing braces
+    content = re.sub(r'\}+$', '}', content)
+
+    try:
+        data = json.loads(content)
+        return data
+    except json.JSONDecodeError as e:
+        print("JSON decode error:", e)
+        print("Problematic JSON string:\n", content)
+        return None
+

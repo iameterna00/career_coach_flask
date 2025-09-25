@@ -23,7 +23,7 @@
         ],
         "toneAndVibe": [],
         "additionalPrompt": "",
-        "followUps": "Hello! I\u2019m Coach Jade, and I\u2019ll be guiding you through this career exploration session. It\u2019s okay if you can\u2019t think of everything immediately\u2014just take your time.  To start, can you tell me a bit about your educational background and past work experience?",
+        "followUps":"",
         "agent_name": "Coach Jade",
         "services": []
     }
