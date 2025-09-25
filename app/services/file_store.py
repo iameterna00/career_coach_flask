@@ -1,6 +1,8 @@
 from pathlib import Path
 import json
 
+import os
+
 # --- Helper Functions ---
 def load_json(path, default=None):
     if path.exists():
@@ -42,3 +44,13 @@ def save_setups():
 
 def save_leads():
     save_json(Path("data/leads.json"), leads)
+# --- Clear Leads Helper ---
+
+
+def clear_leads():
+    global leads
+    leads = []
+
+    leads_file = Path("data/leads.json")
+    if leads_file.exists():
+        os.remove(leads_file)  # delete the file

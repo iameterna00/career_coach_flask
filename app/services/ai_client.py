@@ -19,8 +19,7 @@ def generate_deepseek_reply(prompt: str) -> str:
     payload = {
         "model": "deepseek-chat",
         "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt}
+            {"role": "system", "content": prompt}
         ]
     }
     try:
@@ -45,10 +44,10 @@ def generate_chatgpt_reply(prompt: str) -> str:
         "Content-Type": "application/json"
     }
     payload = {
-        "model": "gpt-3.5-turbo",
+        "model": "gpt-4.1",
         "messages": [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": prompt}
+            {"role": "system", "content": prompt},
+            
         ]
     }
     try:

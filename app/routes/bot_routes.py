@@ -3,7 +3,7 @@ import os
 from flask import Blueprint, request, jsonify
 from typing import List, Optional
 from dataclasses import dataclass, field as dc_field
-from app.services.file_store import setups_by_user, save_setups, leads, save_leads, page_to_setup_map
+from app.services.file_store import setups_by_user, save_setups, leads, save_leads, page_to_setup_map, clear_leads
 from app.services.context_builder import build_context
 from app.services.ai_client import generate_deepseek_reply, generate_chatgpt_reply
 from app.services.parser import parse_booking_confirmation
@@ -87,12 +87,13 @@ def clear_conversations():
     save_conversations_to_file()
     return jsonify({"status": "ok", "message": "All conversations cleared"})
 
+
 @bot_bp.route("/clinicchat", methods=["POST"])
 def chat():
     data = request.json
     request_obj = ChatRequest(
         user_id=data.get("user_id"),
-        message=data.get("message"),
+        message=data.get("message", ""),
         page_id=data.get("page_id"),
         model=data.get("model", "chatgpt"),
         modelConfig=data.get("modelConfig")
@@ -108,20 +109,37 @@ def chat():
 
     conv_key = f"{page_id}_{sender_id}"
     user_message = request_obj.message.strip()
-    if not user_message:
-        return jsonify({"error": "Message is required"}), 400
 
-    # --- Clear previous conversation for a new chat ---
-    # You can also add a flag like data.get("newConversation") to trigger this
-    if data.get("newConversation", False):
+    # --- Initialize conversation if not exists ---
+    if conv_key not in conversations:
         conversations[conv_key] = []
+        welcome_msg = (
+            "Hello! I'm Coach Jade, and I'll be guiding you through this career exploration session. "
+            "To start, can you tell me a bit about your educational background and past work experience?"
+        )
+        conversations[conv_key].append({"role": "bot", "message": welcome_msg})
+        save_conversations_to_file()
 
-    conversations.setdefault(conv_key, []).append({"role": "user", "message": user_message})
-    save_conversations_to_file()  # Save after user message
+        # Return welcome message immediately for empty user message
+        if not user_message:
+            return jsonify({"reply": welcome_msg})
 
-    # Build AI prompt
-    conversation_history = "\n".join([f"{m['role'].capitalize()}: {m['message']}" for m in conversations[conv_key]])
-    prompt = f"""{build_context(setup)}
+    # --- If conversation exists but user message is empty, return last bot message ---
+    elif not user_message:
+        # Find the last bot message in the conversation
+        for msg in reversed(conversations[conv_key]):
+            if msg.get("role") == "bot":
+                return jsonify({"reply": msg.get("message", welcome_msg)})
+        return jsonify({"reply": welcome_msg})
+
+    # --- Process non-empty user message ---
+    if user_message:
+        conversations[conv_key].append({"role": "user", "message": user_message})
+        save_conversations_to_file()
+
+        # Build AI prompt
+        conversation_history = "\n".join([f"{m['role'].capitalize()}: {m['message']}" for m in conversations[conv_key]])
+        prompt = f"""{build_context(setup)}
 
 Conversation history:
 {conversation_history}
@@ -129,35 +147,44 @@ Conversation history:
 Please respond as the business assistant.
 """
 
-    # Select AI model and print which one is responding
-    if model == "deepseek":
-        print(f"[{sender_id}] Using DeepSeek to respond...")
-        bot_reply = generate_deepseek_reply(prompt)
-    else:
-        print(f"[{sender_id}] Using ChatGPT to respond...")
-        bot_reply = generate_chatgpt_reply(prompt)
-
-    conversations[conv_key].append({"role": "bot", "message": bot_reply})
-    save_conversations_to_file()  # Save after bot reply
-
-    # Extract leads if present
-    confirmed = parse_booking_confirmation(bot_reply)
-    if confirmed:
-        confirmed["user_id"] = sender_id
-        confirmed["page_id"] = page_id
-
-        existing_lead = next((l for l in leads if l["user_id"] == sender_id and l["page_id"] == page_id), None)
-        if existing_lead:
-            existing_lead.update(confirmed)
+        # Select AI model
+        if model == "deepseek":
+            bot_reply = generate_deepseek_reply(prompt)
         else:
-            leads.append(confirmed)
+            bot_reply = generate_chatgpt_reply(prompt)
 
-        save_leads()
+        print("\n[AI RAW RESPONSE]:\n", bot_reply, "\n")
 
-    bot_reply_visible = re.sub(r"<<JSON>>.*?<<ENDJSON>>", "", bot_reply, flags=re.DOTALL).strip()
-    return jsonify({"reply": bot_reply_visible})
+        conversations[conv_key].append({"role": "bot", "message": bot_reply})
+        save_conversations_to_file()
 
+        # Extract leads if present
+        confirmed = parse_booking_confirmation(bot_reply)
+        if confirmed:
+            confirmed["user_id"] = sender_id
+            confirmed["page_id"] = page_id
+
+            existing_lead = next((l for l in leads if l["user_id"] == sender_id and l["page_id"] == page_id), None)
+            if existing_lead:
+                existing_lead.update(confirmed)
+            else:
+                leads.append(confirmed)
+
+            save_leads()
+
+        bot_reply_visible = re.sub(r"<<JSON>>.*?<<ENDJSON>>", "", bot_reply, flags=re.DOTALL).strip()
+        return jsonify({"reply": bot_reply_visible})
+
+    return jsonify({"reply": ""})
 
 @bot_bp.route("/leads", methods=["GET"])
 def get_all_leads():
     return jsonify(leads)
+
+@bot_bp.route("/clear-leads", methods=["POST"])
+def clear_leads_endpoint():
+    try:
+        clear_leads()  # call the function from file_store.py
+        return jsonify({"status": "ok", "message": "All leads cleared"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
